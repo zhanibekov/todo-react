@@ -1,8 +1,12 @@
 import React from 'react'
+import { BsCheckAll } from 'react-icons/bs'
 
 const TodoItem = ({ todo }) => {
   return (
-    <div>{todo.title}</div>
+    <div>
+    <BsCheckAll />    
+    {todo.title}
+    </div>
   )
 }
 
