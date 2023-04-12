@@ -1,5 +1,5 @@
 import TodoItem from './item/TodoItem'
-import React, { useState } from 'react';
+import React, { useState } from 'react';  
 
 const data = [
 {
@@ -21,7 +21,13 @@ const data = [
   _id: 'wefw23235',
   title: 'Finish the essay Abay Kunanbayev',
   isCompleted: false,
+},
+{
+  _id: 'wefw23236',
+  title: 'Finish the essay Abay Kunanbayev',
+  isCompleted: false,
 }
+
 ]
 
 const Home = () => {                                  // Л //
@@ -32,12 +38,15 @@ const Home = () => {                                  // Л //
     current.isCompleted = !current.isCompleted        // А //
     setTodos(copy)                                 //<------->//
   } 
-  console.log(todos)
+
+  const removeTodo = id => {
+    setTodos([...todos].filter(t => t._id != id))
+  }
   return ( 
   <div className='text-white w-4/5 mx-auto'> 
     <h1 className='text-2xl font-bold text-center mb-10'>Todo for junior</h1>
   {todos.map(todo =>(
-    <TodoItem key={todo._id} todo={todo} changeTodo={changeTodo} />
+    <TodoItem key={todo._id} todo={todo} changeTodo={changeTodo} removeTodo = {removeTodo} />
   ))}
   </div>
   )
