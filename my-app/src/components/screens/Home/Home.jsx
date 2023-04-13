@@ -40,7 +40,11 @@ const Home = () => {                                  // Л //
   } 
 
   const removeTodo = id => {
-    setTodos([...todos].filter(t => t._id != id))
+    setTodos([...todos].filter(t => t._id !== id))
+  }
+
+  const addTodo = () => {
+
   }
   return ( 
   <div className='text-white w-4/5 mx-auto'> 
