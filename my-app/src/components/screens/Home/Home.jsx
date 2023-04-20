@@ -1,4 +1,5 @@
 import TodoItem from './item/TodoItem'
+import CreateTodoField from './CreateTodoField/CreateTodoField';
 import React, { useState } from 'react';  
 
 const data = [
@@ -43,15 +44,24 @@ const Home = () => {                                  // Л //
     setTodos([...todos].filter(t => t._id !== id))
   }
 
-  const addTodo = () => {
-
+  const addTodo = (title) => {
+      setTodos([ 
+        {
+        _id: new Date(),
+        title,
+        isCompleted: false
+      },
+      ...todos,
+    ])
   }
+  window.addTodo = addTodo
   return ( 
   <div className='text-white w-4/5 mx-auto'> 
     <h1 className='text-2xl font-bold text-center mb-10'>Todo for junior</h1>
   {todos.map(todo =>(
     <TodoItem key={todo._id} todo={todo} changeTodo={changeTodo} removeTodo = {removeTodo} />
   ))}
+  <CreateTodoField addTodo={addTodo} />
   </div>
   )
 }
